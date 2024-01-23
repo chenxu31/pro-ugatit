@@ -1,0 +1,4 @@
+# pelvic
+
+
+python train\test_native.py --gpu 1 --anime False --dataset pelvic --data_dir D:\datasets\pelvic\h5_data_nonrigid --direction BtoA --result_dir E:\training\checkpoints\pro_ugatit

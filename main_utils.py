@@ -57,6 +57,11 @@ def handleParser():
     parser.add_argument('--step', type=int, default=1 ,help='init step.') 
     parser.add_argument('--max_step', type=int, default=3)
 
+    parser.add_argument('--gpu', type=int, default=0, help='GPU id')
+    parser.add_argument('--data_dir', type=str, default='', help='dataset dir')
+    parser.add_argument('--output_dir', type=str, default='output', help='Directory name to save the results')
+    parser.add_argument('--debug', type=int, default=0, help='debug flag')
+
     return parser.parse_args()
 
 def argFixer(commandArg, pathA, pathB):

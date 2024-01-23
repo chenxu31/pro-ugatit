@@ -799,7 +799,7 @@ class UGATIT(object):
 
     def __call__(self, inp, step=0, alpha=0):
         realA, realB = inp['A'], inp['B']
-        if torch.cuda.is_available() and self.args.cuda == True:
+        if torch.cuda.is_available():
             realA, realB = realA.cuda(), realB.cuda()
         fakeB, cam_ab = self.G_A(realA,step=step)
         fakeA, cam_ba = self.G_B(realB,step=step)
@@ -819,11 +819,11 @@ class UGATIT(object):
         self.G_B.train()
 
     def cuda(self):
-        self.D_A.cuda()
         self.G_A.cuda()
+        self.G_B.cuda()
         if self.training:
+            self.D_A.cuda()
             self.D_B.cuda()
-            self.G_B.cuda()
             
        
         self.L1Loss.cuda()
@@ -834,12 +834,12 @@ class UGATIT(object):
 
     def state_dict(self):
         params = {
-            'G_A': self.G_A.module.state_dict(), # dist training
-            'G_B': self.G_B.module.state_dict(),
+            'G_A': self.G_A.state_dict(), # dist training
+            'G_B': self.G_B.state_dict(),
         }
         if self.training:
-            params['D_A'] = self.D_A.module.state_dict(),
-            params['D_B'] = self.D_B.module.state_dict()
+            params['D_A'] = self.D_A.state_dict(),
+            params['D_B'] = self.D_B.state_dict()
         return params
 
     def load_state_dict(self, weight_loc):
