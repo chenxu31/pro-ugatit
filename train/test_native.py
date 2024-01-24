@@ -28,7 +28,7 @@ import common_pelvic_pt as common_pelvic
 
 def main(device, args):
     model = UGATIT(args)
-    model.load_state_dict(os.path.join(args.result_dir, args.dataset, 'train_best.pt'))
+    model.load_state_dict(os.path.join(args.result_dir, args.dataset, 'train_last.pt'))
     model.G_A.eval()
     model.G_B.eval()
     if args.gpu >= 0:
@@ -36,7 +36,7 @@ def main(device, args):
 
     if args.dataset == "pelvic":
         common_file = common_pelvic
-        test_data_s, test_data_t, _, _ = common_pelvic.load_val_data(args.data_dir, valid=True)
+        test_data_s, test_data_t, _, _ = common_pelvic.load_test_data(args.data_dir, valid=True)
     elif args.dataset == "cmf":
         common_file = common_cmf
         test_data_t, test_data_s, _ = common_cmf.load_test_data(args.data_dir)

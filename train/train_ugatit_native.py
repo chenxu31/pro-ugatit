@@ -74,13 +74,13 @@ class Train:
             self.data_loader_s = torch.utils.data.DataLoader(self.dataset_s,
                                                              batch_size=args.batch_size,
                                                              shuffle=True,
-                                                             num_workers=4,
+                                                             num_workers=NUM_WORKERS,
                                                              pin_memory=True,
                                                              drop_last=True)
             self.data_loader_t = torch.utils.data.DataLoader(self.dataset_t,
                                                              batch_size=args.batch_size,
                                                              shuffle=True,
-                                                             num_workers=4,
+                                                             num_workers=NUM_WORKERS,
                                                              pin_memory=True,
                                                              drop_last=True)
 
