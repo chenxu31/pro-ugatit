@@ -210,6 +210,11 @@ class Train:
                 loss_meters.append(AvgMeter())
 
             for iter_idx, (data_s, data_t) in enumerate(zip(self.data_loader_s, self.data_loader_t)):
+
+                if (data_s["image"].contiguous().view(data_s["image"].shape[0], -1).max(1)[0].min() <= -1 or
+                        data_t["image"].contiguous().view(data_t["image"].shape[0], -1).max(1)[0].min() <= -1):
+                    continue
+
                 inp = {
                     "A": data_s["image"],
                     "B": data_t["image"],

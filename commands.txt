@@ -1,9 +1,9 @@
 # pelvic
-python train\train_ugatit_native.py --gpu 1 --anime False --dataset pelvic --data_dir D:\datasets\pelvic\h5_data_nonrigid --direction BtoA --result_dir E:\training\checkpoints\pro_ugatit --batch_size 1
+python train/train_ugatit_native.py --gpu 1 --anime False --dataset pelvic --data_dir ~/datasets/pelvic/h5_data_nonrigid --direction BtoA --result_dir ~/training/checkpoints/pro_ugatit --batch_size 4
 
-python train\test_native.py --gpu 1 --anime False --dataset pelvic --data_dir D:\datasets\pelvic\h5_data_nonrigid --direction BtoA --result_dir E:\training\checkpoints\pro_ugatit --output_dir E:\training\test_output\pro_ugatit\pelvic
+python train/test_native.py --gpu 1 --anime False --dataset pelvic --data_dir ~/datasets/pelvic/h5_data_nonrigid --direction BtoA --result_dir ~/training/checkpoints/pro_ugatit --output_dir ~/training/test_output/pro_ugatit/pelvic
 
 # cmf
-python train\train_ugatit_native.py --gpu 1 --anime False --dataset cmf --data_dir D:\datasets\cmf --direction BtoA --result_dir E:\training\checkpoints\pro_ugatit --batch_size 1
+python train/train_ugatit_native.py --gpu 1 --anime False --dataset cmf --data_dir ~/datasets/cmf --direction BtoA --result_dir ~/training/checkpoints/pro_ugatit --batch_size 4
 
-python train\test_native.py --gpu 1 --anime False --dataset cmf --data_dir D:\datasets\cmf --direction BtoA --result_dir E:\training\checkpoints\pro_ugatit --output_dir E:\training\test_output\pro_ugatit\cmf
+python train/test_native.py --gpu 1 --anime False --dataset cmf --data_dir ~/datasets/cmf --direction BtoA --result_dir ~/training/checkpoints/pro_ugatit --output_dir ~/training/test_output/pro_ugatit/cmf
